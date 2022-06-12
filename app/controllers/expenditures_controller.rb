@@ -5,7 +5,7 @@ class ExpendituresController < ApplicationController
   # GET /expenditures or /expenditures.json
   def index
     @group_id = Group.find(params[:group_id])
-    @expenditures = Expenditure.where(group_id: @group_id.id)
+    @expenditures = Expenditure.where(group_id: @group_id.id).order(created_at: :desc)
   end
 
   # GET /expenditures/1 or /expenditures/1.json
